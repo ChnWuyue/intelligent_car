@@ -1,4 +1,7 @@
-﻿#include"student.h"
+//
+// Created by 伍申鑫 on 2022/11/3.
+//
+#include"student.h"
 
 void SetStudentInfo() {
     ofstream fout("student.txt");
@@ -10,7 +13,7 @@ void SetStudentInfo() {
         cin >> id;
         Student s = {name, id};
         fout << s.id << " " << s.name << endl;
-        if (std::equal(s.id.begin(), s.id.end(),"010")) {
+        if (std::equal(s.id.begin(), s.id.end(), "010")) {
             break;
         }
     }
@@ -60,3 +63,5 @@ void Student::save() {
     fout << id << " " << name << endl;
     fout.close();
 }
+
+Student::Student() = default;

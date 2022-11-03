@@ -1,4 +1,3 @@
-﻿#pragma once
 //
 // Created by 伍申鑫 on 2022/10/21.
 //
@@ -9,9 +8,14 @@
 // Describe by wuyue on 2022/10/21.
 //
 //
+#ifndef INTELLIGENT_CAR_STUDENT_H
+#define INTELLIGENT_CAR_STUDENT_H
+#pragma once
+
 #include<string>
 #include<iostream>
 #include<fstream>
+
 using namespace std;
 
 /**
@@ -33,6 +37,8 @@ public:
 
     void setName(const string &name);
 
+    Student();
+
     Student(const string &id, const string &name);
 
     /**
@@ -47,3 +53,5 @@ public:
 };
 
 void SetStudentInfo();
+
+#endif //INTELLIGENT_CAR_STUDENT_H

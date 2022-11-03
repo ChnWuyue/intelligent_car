@@ -1,5 +1,5 @@
-﻿//
-// Created by 伍申鑫 on 2022/10/21.
+//
+// Created by 伍申鑫 on 2022/11/3.
 //
 #include"intelligent_car.h"
 
@@ -96,7 +96,7 @@ void Wheel::setSize(const string &size) {
     Wheel::size = size;
 }
 
-Wheel::Wheel(const string &wheelType, const string &size) : wheel_type(wheelType), size(size) {}
+Wheel::Wheel() {};
 
 void Wheel::print() {
     cout << "i)轮胎（4个）" << endl
@@ -147,14 +147,7 @@ void Chassis::setWheels(const Wheel &wheels) {
     Chassis::wheels = wheels;
 }
 
-Chassis::Chassis(const string &id, const string &type, const string &wheelBase, const string &tread,
-                 const string &minimumGroundClearance, const string &minimumTurningRadius, const string &driveType,
-                 const string &maximumRide, const Wheel &wheels) : id(id), type(type), wheel_base(wheelBase),
-                                                                   tread(tread),
-                                                                   minimum_ground_clearance(minimumGroundClearance),
-                                                                   minimum_turning_radius(minimumTurningRadius),
-                                                                   drive_type(driveType), maximum_ride(maximumRide),
-                                                                   wheels(wheels) {}
+Chassis::Chassis() {};
 
 void AGX::setType(const string &type) {
     AGX::type = type;
@@ -229,6 +222,7 @@ void MultilineLidar::setPowerDissipation(const string &powerDissipation) {
     power_dissipation = powerDissipation;
 }
 
+
 MultilineLidar::MultilineLidar(const string &type, const string &channelsNum, const string &range,
                                const string &powerDissipation) : type(type), channels_num(channelsNum), range(range),
                                                                  power_dissipation(powerDissipation) {}
@@ -271,4 +265,36 @@ Battery::Battery(const string &parameter, const string &power, const string &cha
 
 void IntelligentCar::setId(const string &id) {
     IntelligentCar::id = id;
+}
+
+void MultilineLidar::addSubscribe(Chassis *chassis) {
+    chassisList.push_back(chassis);
+}
+
+void MultilineLidar::notify(const std::string &events) {
+    for (auto &it: chassisList) {
+        Chassis::update(events);
+    }
+}
+
+MultilineLidar::MultilineLidar() {
+
+}
+
+
+void Chassis::update(std::string events) {
+
+    if (std::equal(events.begin(), events.end(), "前方")) {
+        std::cout << "后退" << endl;
+    } else if (std::equal(events.begin(), events.end(), "右前方")) {
+        std::cout << "左转" << endl;
+    } else {
+        std::cout << "右转" << endl;
+    }
+}
+
+Chassis::Chassis(const string &id, const string &type, const string &wheelBase, const string &tread,
+                 const string &minimumGroundClearance, const string &minimumTurningRadius, const string &driveType,
+                 const string &maximumRide, const Wheel &wheels) {
+
 }

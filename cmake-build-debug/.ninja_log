@@ -1,4 +1,16 @@
 # ninja log v5
-0	334	1666599322510503780	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
-0	397	1666599322573927969	CMakeFiles/intelligent_car.dir/intelligent_car.cpp.o	62307ca6404b829f
+2	437	1666663223313638352	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
+3	451	1666663223330011589	CMakeFiles/intelligent_car.dir/intelligent_car.cpp.o	62307ca6404b829f
 0	387	1666599322563881884	CMakeFiles/intelligent_car.dir/student.cpp.o	ab0a429fb0fc65bf
+3	443	1666663223321219313	CMakeFiles/intelligent_car.dir/title.cpp.o	86662fb0291c38c6
+1	411	1667458678708428551	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
+2	414	1667458678712363072	CMakeFiles/intelligent_car.dir/intelligent_car.cpp.o	62307ca6404b829f
+1	300	1667458867743385860	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
+2	304	1667458867747370754	CMakeFiles/intelligent_car.dir/student.cpp.o	ab0a429fb0fc65bf
+304	387	1667458867831669420	intelligent_car	5e70c917bd11d49d
+1	404	1667462776119378090	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
+1	290	1667462964081568634	CMakeFiles/intelligent_car.dir/main.cpp.o	ac97fa9773ac0bca
+2	340	1667462964131893480	CMakeFiles/intelligent_car.dir/intelligent_car.cpp.o	62307ca6404b829f
+340	389	1667462964182123160	intelligent_car	5e70c917bd11d49d
+2	317	1667463022049253389	CMakeFiles/intelligent_car.dir/intelligent_car.cpp.o	62307ca6404b829f
+317	350	1667463022083360474	intelligent_car	5e70c917bd11d49d

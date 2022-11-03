@@ -1,4 +1,3 @@
-﻿#pragma once
 //
 // Created by 伍申鑫 on 2022/10/21.
 //
@@ -9,9 +8,14 @@
 // Describe by wuyue on 2022/10/21.
 //
 //
+
+#ifndef INTELLIGENT_CAR_INTELLIGENT_CAR_H
+#define INTELLIGENT_CAR_INTELLIGENT_CAR_H
+
 #include<string>
 #include<fstream>
 #include<iostream>
+#include <list>
 
 using namespace std;
 
@@ -31,6 +35,8 @@ public:
      */
     string size;
 public:
+    Wheel();
+
     Wheel(const string &wheelType, const string &size);
 
     void setWheelType(const string &wheelType);
@@ -118,9 +124,12 @@ public:
 
     void setWheels(const Wheel &wheels);
 
+    Chassis();
+
     Chassis(const string &id, const string &type, const string &wheelBase, const string &tread,
             const string &minimumGroundClearance, const string &minimumTurningRadius, const string &driveType,
             const string &maximumRide, const Wheel &wheels);
+
 
     /**
    * 打印信息
@@ -131,6 +140,12 @@ public:
      * 保存到文件
      */
     void save();
+
+    /**
+     * 更新状态
+     * @param events 事件
+     */
+    static void update(std::string events);
 };
 
 
@@ -281,6 +296,11 @@ public:
      * 功耗：8W
      */
     string power_dissipation;
+
+    /**
+     * 订阅者列表
+     */
+    list<Chassis *> chassisList;
 public:
     void setType(const string &type);
 
@@ -289,6 +309,8 @@ public:
     void setRange(const string &range);
 
     void setPowerDissipation(const string &powerDissipation);
+
+    MultilineLidar();
 
     MultilineLidar(const string &type, const string &channelsNum, const string &range, const string &powerDissipation);
 
@@ -301,6 +323,18 @@ public:
      * 保存到文件
      */
     void save();
+
+    /**
+     * 添加 订阅者
+     * @param chassis 底盘
+     */
+    void addSubscribe(Chassis *chassis);
+
+    /**
+     * 发布详细
+     * @param events 事件
+     */
+    void notify(const std::string &events);
 };
 
 /**
@@ -471,3 +505,5 @@ public:
 
 
 void SetCarInfo();
+
+#endif //INTELLIGENT_CAR_INTELLIGENT_CAR_H

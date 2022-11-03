@@ -3,5 +3,5 @@ project(intelligent_car)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(intelligent_car main.cpp intelligent_car.cpp student.cpp)
+add_executable(intelligent_car main.cpp intelligent_car.h intelligent_car.cpp student.h student.cpp)
 
