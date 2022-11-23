@@ -272,6 +272,9 @@ void MultilineLidar::addSubscribe(Chassis *chassis) {
 }
 
 void MultilineLidar::notify(const std::string &events) {
+    if (events != "前方" && events != "右前方" && events != "左前方" && events != "停止") {
+        return;
+    }
     for (auto &it: chassisList) {
         Chassis::update(events);
     }
@@ -281,15 +284,36 @@ MultilineLidar::MultilineLidar() {
 
 }
 
+void MultilineLidar::move_operate(promise<string> *val) {
+    future<string> operate = val->get_future();
+    string state = operate.get();
+    cout << state << "有障碍" << endl;
+    this->notify(state);
+}
+
 
 void Chassis::update(std::string events) {
 
     if (std::equal(events.begin(), events.end(), "前方")) {
-        std::cout << "后退" << endl;
+        std::cout << "前左：-1\n"
+                     "前右：-1\n"
+                     "后左：-1\n"
+                     "后右：-1" << endl;
     } else if (std::equal(events.begin(), events.end(), "右前方")) {
-        std::cout << "左转" << endl;
+        std::cout << "前左：2\n"
+                     "前右：2\n"
+                     "后左：0\n"
+                     "后右：0" << endl;
+    } else if (std::equal(events.begin(), events.end(), "左前方")) {
+        std::cout << "前左：-2\n"
+                     "前右：-2\n"
+                     "后左：0\n"
+                     "后右：0" << endl;
     } else {
-        std::cout << "右转" << endl;
+        std::cout << "前左：0\n"
+                     "前右：0\n"
+                     "后左：0\n"
+                     "后右：0" << endl;
     }
 }
 

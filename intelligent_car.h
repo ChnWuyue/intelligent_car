@@ -16,6 +16,7 @@
 #include<fstream>
 #include<iostream>
 #include <list>
+#include <future>
 
 using namespace std;
 
@@ -314,6 +315,10 @@ public:
 
     MultilineLidar(const string &type, const string &channelsNum, const string &range, const string &powerDissipation);
 
+    /**
+     * 移动控制
+     */
+    void move_operate(promise<string> *val);
     /**
    * 打印信息
    */
