@@ -5,7 +5,6 @@
 #include"student.h"
 #include <future>
 
-
 void task2();
 
 void task3();
